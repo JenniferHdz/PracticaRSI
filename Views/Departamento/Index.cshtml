@@ -1,0 +1,41 @@
+﻿@model IEnumerable<PracticaRSI_Web.Models.ModelsView.DepartamentoView>
+
+@{
+    ViewBag.Title = "Departamento";
+}
+
+<h2>Departamentos</h2>
+
+<div class="row" style="text-align:right;padding:5px">
+    <a class="btn btn-default" href="~/Empleado">Regresar</a>
+    <a class="btn btn-success" href="~/Departamento/DepartamentCreate">Nuevo Departamento</a>
+</div>
+<table class="table">
+    <tr>
+        <th>
+            ID
+        </th>
+        <th>
+            Departamento
+        </th>
+        <th>
+            Acción
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepartamentoID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Depto)
+            </td>
+            <td>
+                <a class="btn btn-default" href="~/Departamento/DepartamentUpdate/@item.DepartamentoID">Editar</a>
+            </td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,60 @@
+﻿@model IEnumerable<PracticaRSI_Web.Models.ModelsView.EmpleadoView>
+
+@{
+    ViewBag.Title = "Empleados";
+}
+
+<h2>Empleados</h2>
+
+<div class="row" style="text-align:right;padding:5px">
+    <a href="~/Departamento" class="btn btn-default">Departamentos</a>
+    <a href="~/Empleado/EmpleadoCreate" class="btn btn-success">Nuevo Empleado</a>
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+           Nombre
+        </th>
+        <th>
+            Fecha de nacimiento
+        </th>
+        <th>
+            Dirección
+        </th>
+        <th>
+           Fecha de ingreso
+        </th>
+        <th>
+            Departamento
+        </th>
+        <th>
+            Acción
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaNac)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Direccion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaIngreso)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Departamento)
+        </td>
+        <td>
+            <a class="btn btn-default" href="~/Empleado/EmpleadoUpdate/@item.EmpleadoID">Editar</a>
+            <a class="btn btn-danger" href="~/Empleado/EmpleadoDelete/@item.EmpleadoID">Eliminar</a>
+        </td>
+    </tr>
+}
+
+</table>
